@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:ital,wght@1,700&display=swap");
+
+body{
+    background-color: #EEF9BF;
+    height: 629px;
+    width: 1110px;
+}
+.titulo{font-family: Roboto;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color:#75B79E;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    } 
