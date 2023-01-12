@@ -14,15 +14,20 @@ let carregar = "";
 
 papagaios.forEach(img => {
   carregar += 
-  `<div class="card">
+  `<div class="card" onclick="escolhe(this)" >
     <div class="front-face face">
-    <img src="imagem/${img}"/>
+    <img src="imagem/capa.png">
     </div>
     <div class="back-face face">
-    <img src="imagem/capa.png">
+    <img src="imagem/${img}"/>
     </div>
   </div>`;
 })
 
 cards.innerHTML = carregar
+
+
+
+
+
 

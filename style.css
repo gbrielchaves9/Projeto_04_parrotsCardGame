@@ -15,7 +15,8 @@ body{
     display: flex;
     justify-content: center;
     } 
-    .mesa{
+
+    .mesadejogo{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -27,6 +28,8 @@ body{
         width: 200px;
         height: 250px;
         position: relative;
+        margin-top: 34px;
+        
       }
 
       .face {
@@ -48,14 +51,16 @@ body{
         transform: rotateY(180deg);
       }
 
-      .card:hover .back-face {
+      .card .back-face {
         transform: rotateY(0deg);
       }
 
-      .card:hover .front-face {
+      .card .front-face {
         transform: rotateY(-180deg);
       }
 
 
       img{height: 100px;
       }
+
+      
