@@ -29,5 +29,3 @@ cards.innerHTML = carregar
 
 
 
-
-
