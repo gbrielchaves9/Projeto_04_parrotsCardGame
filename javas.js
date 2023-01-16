@@ -46,6 +46,8 @@ while (nCards === 0) {
 
 
 
+
+
 const cards = document.querySelector("#mesa");
 const papagaios = [
     'i1.gif',
@@ -60,19 +62,62 @@ const papagaios = [
 let carregar = "";
 
 papagaios.forEach(img => {
-  carregar += 
-  `<div class="card" onclick="escolhe(this)" >
+  carregar +=
+  `<div class="card" data-cardis="${img}"   >
     <div class="front-face face">
     <img src="imagem/capa.png">
     </div>
-    <div class="back-face face">
+    <div class="back-face face" >
     <img src="imagem/${img}"/>
     </div>
   </div>`;
 })
 
-cards.innerHTML = carregar
+cards.innerHTML =  carregar +  carregar
+
+const cartas = document.querySelectorAll(".card");
 
 
+let virei1,  virei2
+let virarsomente2 = false;
+
+function vaivirar(){
+  if(virarsomente2) return false 
+  this.classList.add('cardtrans')
+  if(!virei1){
+    virei1=this;
+    return false;
+  }
+  virei2=this
 
 
+  verificarigualdade()
+}
+
+function verificarigualdade(){
+  let verificador = virei1.dataset.cardis === virei2.dataset.cardis
+  console.log(verificador)
+  !verificador ? desvirar():lipartudo(verificador);
+
+}
+
+function desvirar(){
+  virarsomente2 = true
+
+  setTimeout(() => {
+    virei1.classList.remove('cardtrans')
+    virei2.classList.remove('cardtrans')
+    lipartudo ();
+  }, 600);
+
+}
+function lipartudo(verificador=false){
+  if(verificador){
+    virei1.removeEventListener('click',vaivirar)
+   virei2.removeEventListener('click',vaivirar)
+  }
+  [virei1, virei2,virarsomente2]= [null , null , false]
+}
+
+
+cartas.forEach(clica => clica.addEventListener("click", vaivirar));
