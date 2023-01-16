@@ -2,7 +2,7 @@ let nCards = 0;
 
 w:
 while (nCards === 0) {
-  let ans = prompt("quantas?");
+  let ans = prompt("quantas cartas voce quer meu amigo?");
 
   if (ans == null) continue;
 
@@ -76,6 +76,7 @@ papagaios.forEach(img => {
 cards.innerHTML =  carregar +  carregar
 
 const cartas = document.querySelectorAll(".card");
+
 
 
 let virei1,  virei2
