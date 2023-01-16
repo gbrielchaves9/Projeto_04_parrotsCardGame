@@ -14,14 +14,12 @@ body{
     margin-top: 40px;
     display: flex;
     justify-content: center;
-    } 
+    }
 
     .mesadejogo{
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        
-        
     }
 
     .card {
@@ -29,7 +27,6 @@ body{
         height: 250px;
         position: relative;
         margin-top: 34px;
-        
       }
 
       .face {
@@ -47,15 +44,15 @@ body{
         transform-style: preserve-3d;
       }
 
-      .back-face {
+      .back-face  {
         transform: rotateY(180deg);
       }
 
-      .card .back-face {
+      .cardtrans .back-face  {
         transform: rotateY(0deg);
       }
 
-      .card .front-face {
+      .cardtrans .front-face   {
         transform: rotateY(-180deg);
       }
 
