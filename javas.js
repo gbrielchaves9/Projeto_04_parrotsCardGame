@@ -1,54 +1,4 @@
-let nCards = 0;
 
-w:
-while (nCards === 0) {
-  let ans = prompt("quantas cartas voce quer meu amigo?");
-
-  if (ans == null) continue;
-
-  let len = ans.length;
-
-  if (len > 2) continue;
-
-  for (let i = 0; i < len; i++) {
-    switch (ans[i]) {
-      case '0':
-        break;
-      case '1':
-        break;
-      case '2':
-        break;
-      case '3':
-        break;
-      case '4':
-        break;
-      case '5':
-        break;
-      case '6':
-        break;
-      case '7':
-        break;
-      case '8':
-        break;
-      case '9':
-        break;
-      default:
-        continue w;
-    };
-  };
-
-  if (ans < 4) continue;
-  if (ans > 14) continue;
-  if (ans % 2 !== 0) continue;
-
-  nCards = ans;
-};
-
-
-
-
-
-const cards = document.querySelector("#mesa");
 const papagaios = [
     'i1.gif',
     'i2.gif',
@@ -59,21 +9,63 @@ const papagaios = [
     'i7.gif'
 ];
 
-let carregar = "";
+const vazio= [];
 
-papagaios.forEach(img => {
-  carregar +=
-  `<div class="card" data-cardis="${img}"   >
-    <div class="front-face face">
-    <img src="imagem/capa.png">
+
+function pegacartas(){
+  const cards = document.querySelector("#mesa");
+  for(let i = 0; i < vazio.length; i++){
+    let carregar=
+    `<div class="card" data-cardis="${vazio[i]}" data-test="card"  >
+    <div class="front-face face" >
+    <img src="imagem/capa.png" data-test="face-down-image">
     </div>
     <div class="back-face face" >
-    <img src="imagem/${img}"/>
+    <img src="imagem/${vazio[i]}"/ data-test="face-up-image">
     </div>
   </div>`;
-})
 
-cards.innerHTML =  carregar +  carregar
+cards.innerHTML += carregar  
+}
+}
+let carregar;
+
+function comparador() { 
+	return Math.random() - 0.5; 
+}
+
+function carrega(){
+
+    for(let i = 0; i < (ncards/2) ; i++ ){
+        let card = papagaios[i];
+        vazio.push(card);
+        vazio.push(card);
+    }
+    vazio.sort(comparador);
+
+    pegacartas()
+}
+
+
+
+
+function condicao(){
+  if ( (ncards% 2 !== 0) ||ncards < 4 || ncards > 14 || isNaN(ncards)) {
+      return true;
+  }else{
+      return false;
+  }
+}
+
+function seleciona(){
+  ncards = Number( prompt('quantas cartas voce precisa?') );
+  while( condicao() ){
+    ncards = Number( prompt('quantas cartas voce precisa?') );
+  }12
+  carrega();
+}
+seleciona()
+
 
 const cartas = document.querySelectorAll(".card");
 
@@ -91,16 +83,15 @@ function vaivirar(){
   }
   virei2=this
 
-
+ 
   verificarigualdade()
 }
 
 function verificarigualdade(){
   let verificador = virei1.dataset.cardis === virei2.dataset.cardis
-  console.log(verificador)
   !verificador ? desvirar():lipartudo(verificador);
-
-}
+  console.log(verificador)
+} 
 
 function desvirar(){
   virarsomente2 = true
@@ -112,6 +103,7 @@ function desvirar(){
   }, 600);
 
 }
+
 function lipartudo(verificador=false){
   if(verificador){
     virei1.removeEventListener('click',vaivirar)
@@ -122,3 +114,6 @@ function lipartudo(verificador=false){
 
 
 cartas.forEach(clica => clica.addEventListener("click", vaivirar));
+
+
+
